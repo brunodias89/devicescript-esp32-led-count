@@ -1,0 +1,35 @@
+{
+    "name": "devicescript-esp32-led-count",
+    "version": "0.0.1",
+    "author": "Bruno Dias",
+    "license": "MIT",
+    "main": "./src/main.ts",
+    "devicescript": {
+        "library": true
+    },
+    "devDependencies": {
+        "@devicescript/cli": "latest"
+    },
+    "scripts": {
+        "setup": "devicescript build --quiet",
+        "build:devicescript": "devicescript build src/main.ts",
+        "postinstall": "npm run setup",
+        "build": "npm run build:devicescript",
+        "watch:devicescript": "devicescript devtools src/main.ts",
+        "watch": "npm run watch:devicescript",
+        "test:devicescript": "devicescript run src/main.ts --test --test-self-exit",
+        "test": "npm run test:devicescript",
+        "start": "npm run watch",
+        "build:docs": "npx typedoc ./src/index.ts --tsconfig ./src/tsconfig.json"
+    },
+    "files": [
+        "src/*.ts",
+        "devsconfig.json"
+    ],
+    "keywords": [
+        "devicescript"
+    ],
+    "dependencies": {
+        "serialport": "^12.0.0"
+    }
+}
